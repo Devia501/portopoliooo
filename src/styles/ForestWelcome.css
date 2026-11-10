@@ -1,0 +1,167 @@
+/* Scroll-driven forest transition: background -> title -> hiker -> rocks */
+.forest-welcome {
+  --scene-progress: 0;
+  position: relative;
+  height: 230vh;
+  background: #080b0a;
+  isolation: isolate;
+}
+.forest-sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100svh;
+  min-height: 560px;
+  overflow: hidden;
+  background: #080b0a;
+  isolation: isolate;
+}
+.forest-background,
+.forest-atmosphere,
+.forest-welcome-copy,
+.forest-hiker,
+.forest-foreground {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.forest-background { z-index: 0; overflow: hidden; }
+.forest-background img {
+  width: 100%;
+  height: 112%;
+  object-fit: cover;
+  object-position: center 56%;
+  display: block;
+  transform: translate3d(0, calc(var(--scene-progress) * -7%), 0) scale(1.06);
+  will-change: transform;
+}
+.forest-atmosphere {
+  z-index: 1;
+  background:
+    linear-gradient(180deg, #080b09 0%, rgba(8,11,9,.72) 7%, rgba(3,7,7,.16) 26%, transparent 42%, rgba(3,5,5,.25) 70%, #080b0a 100%),
+    radial-gradient(ellipse at 50% 55%, transparent 20%, rgba(0,0,0,.38) 100%);
+}
+.forest-welcome-copy {
+  z-index: 2;
+  inset: auto 16px 47%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #f3eee5;
+  
+  opacity: clamp(0, calc((var(--scene-progress) - .12) * 3.8), 1);
+  transform: translate3d(
+  0,
+  calc(420px - (var(--scene-progress) * 490px)),
+  0
+) scale(calc(.78 + var(--scene-progress) * .28));
+  transform-origin: center bottom;
+  will-change: transform, opacity;
+}
+.forest-welcome-copy span {
+  margin-bottom: 12px;
+  color: rgba(242,235,220,.72);
+  font: 600 11px/1.2 "Hanken Grotesk", sans-serif;
+  letter-spacing: .34em;
+}
+.forest-welcome-copy h2 {
+  margin: 0;
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: clamp(42px, 7.4vw, 108px);
+  line-height: .9;
+  font-weight: 800;
+  letter-spacing: -.065em;
+  text-shadow: 0 8px 36px rgba(0,0,0,.7);
+}
+.forest-hiker {
+  z-index: 5;
+
+  /* Posisi karakter */
+  left: 63%;
+
+  /* Ukuran karakter */
+  width: min(38vw, 480px);
+  height: 72vh;
+
+  /* Animasi scroll */
+  transform: translate3d(
+    -50%,
+    calc((1 - var(--scene-progress)) * 105px + 188px),
+    0
+  );
+
+  opacity: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  will-change: transform, opacity;
+}
+.forest-hiker img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+  filter: drop-shadow(0 18px 24px rgba(0,0,0,.38));
+}
+.forest-foreground {
+  z-index: 4;
+  inset: auto 0 -1px;
+  height: min(48vh, 470px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.forest-foreground img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+  transform: translate3d(0, calc((1 - var(--scene-progress)) * 90px), 0) scale(1.04);
+  transform-origin: center bottom;
+  will-change: transform;
+}
+.forest-scroll-hint {
+  position: absolute;
+  z-index: 5;
+  bottom: 25px;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  color: rgba(245,240,230,.7);
+  font: 600 9px/1 "Hanken Grotesk", sans-serif;
+  letter-spacing: .24em;
+  transform: translateX(-50%);
+  opacity: calc(1 - var(--scene-progress) * 5);
+}
+.forest-scroll-hint i {
+  display: block;
+  width: 1px;
+  height: 27px;
+  background: linear-gradient(#eee6d7, transparent);
+}
+@media (max-width: 700px) {
+  .forest-welcome { height: 190vh; }
+  .forest-sticky { min-height: 520px; }
+  .forest-background img { object-position: 54% center; }
+  .forest-welcome-copy { bottom: 26%;  }
+  .forest-welcome-copy h2 { font-size: clamp(42px, 12vw, 68px); }
+  .forest-hiker {
+    width: min(78vw, 430px);
+    height: 66vh;
+    bottom: 7vh;
+  }
+  .forest-foreground { height: 36vh; }
+  .forest-foreground img { object-position: center bottom; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .forest-background img,
+  .forest-hiker,
+  .forest-foreground img,
+  .forest-welcome-copy { transform: none; }
+}
