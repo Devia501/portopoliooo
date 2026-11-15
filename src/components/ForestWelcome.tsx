@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 import background from "../assets/forest-background.png";
-import foreground from "../assets/forest-foreground.png";
-import hiker from "../assets/forest-hiker.png";
+import scene from "../assets/forest-scene.png";
 import "../styles/ForestWelcome.css";
 
 export default function ForestWelcome() {
@@ -55,12 +54,8 @@ export default function ForestWelcome() {
           </h2>
         </div>
 
-        <div className="forest-hiker" aria-hidden="true">
-          <img src={hiker} alt="" />
-        </div>
-
-        <div className="forest-foreground" aria-hidden="true">
-          <img src={foreground} alt="" />
+        <div className="forest-scene-art" aria-hidden="true">
+          <img src={scene} alt="" />
         </div>
 
         <div className="forest-scroll-hint">

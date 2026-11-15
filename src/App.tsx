@@ -11,7 +11,8 @@ import {
   Code2,
   Copy,
   Gamepad2,
-  ImageIcon,
+  FolderOpen,
+  Folder,
   MousePointerClick,
   Palette,
   PenTool,
@@ -22,6 +23,9 @@ import {
 } from "lucide-react";
 import {
   SiBlender,
+  SiGithub,
+  SiGmail,
+  SiGoogledrive,
   SiCss,
   SiExpo,
   SiFigma,
@@ -77,70 +81,100 @@ const projects: {
   description: string;
   tech: string[];
   shots: Shot[];
+  cover: string;
+  github?: string;
+  drive?: string;
 }[] = [
   {
     title: "SIMATKUL",
+    cover: "/images/projects/simatkul-bg-v2.png",
+    github: "https://github.com/azizahhazii/FE-SIMATKUL.git", // Tempel link repository GitHub di sini.
     tag: "Web",
     description:
       "A management system for academic practical courses. I worked on the frontend, interface development, and API integration.",
     tech: ["React", "TypeScript", "Vite", "Tailwind CSS"],
     shots: [
-      shot("simatkul-1.png", "Dashboard"),
-      shot("simatkul-2.png", "Course list"),
-      shot("simatkul-code.png", "API integration", "Code"),
+      shot("simatkul-1.png", "Master Data"),
+      shot("simatkul-2.png", "Practical Scheduling"),
+      shot("simatkul-4.png", "Scheduling Results"),
+      shot("simatkul-5.png", "Excel Export"),
+      shot("simatkul-code.png", "API Integration", "Code"),
     ],
   },
   {
     title: "SIA Akademik",
+    cover: "/images/projects/sia-11.png",
+    github: "https://github.com/Devia501/SIA_FE.git", // Tempel link repository GitHub di sini.
     tag: "Mobile",
     description:
       "A mobile academic information system. I built interface screens and integrated the API.",
     tech: ["React Native", "TypeScript", "REST API"],
     shots: [
-      shot("sia-1.png", "Home screen"),
-      shot("sia-2.png", "Schedule"),
-      shot("sia-code.png", "Screen component", "Code"),
+      shot("sia-1.png", "Home Screen"),
+      shot("sia-2.png", "Student Portal", "Dashboard & Registration"),
+      shot("sia-3.png", "Manager"),
+      shot("sia-4.png", "Admin"),
+      shot("sia-5.png", "Frontend Implementation", "Code"),
     ],
   },
   {
-    title: "Dental X-Ray",
+    title: "Tentang Dental",
+    cover: "/images/projects/tentangdental-bg.png",
+    github: "https://github.com/Devia501/dental_mobile.git", // Tempel link repository GitHub di sini.
     tag: "Mobile",
     description:
       "A dental clinic app with an admin interface for managing clinic information, connected to the application API.",
     tech: ["Expo", "React Native", "TypeScript"],
     shots: [
-      shot("dental-1.png", "Admin dashboard"),
-      shot("dental-2.png", "Clinic info"),
-      shot("dental-code.png", "API service", "Code"),
+      shot("dental-1.png", "App Overview"),
+      shot("dental-2.png", "Platform Features"),
+      shot("dental-3.png", "System Workflow"),
+      shot("dental-4.png", "Examination Interface"),
+      shot("dental-5.png", "API Integration", "Code"),
     ],
   },
   {
-    title: "Pecinta Alam",
+    title: "Animasi Pecinta Alam",
+    cover: "/images/projects/pecinta-alam-1.png",
     tag: "3D",
+    drive:
+      "https://drive.google.com/file/d/1UnczsPA5b6mkpLTtD-e0snTYN8NUaF5G/view?usp=sharing",
     description:
       "A 3D animation about a hiker climbing a mountain. I handled story, assets, character creation, rigging, and animation.",
     tech: ["Blender", "3D Modeling", "Rigging", "Animation"],
     shots: [
-      shot("pecinta-alam-1.png", "Character", "3D"),
-      shot("pecinta-alam-2.png", "Mountain scene", "3D"),
-      shot("pecinta-alam-3.png", "Rig", "3D"),
+      shot("pecinta-alam-1.png", "3D Object Modeling", "3D"),
+      shot("pecinta-alam-2.png", "Character Modeling", "3D"),
+      shot("pecinta-alam-3.png", "Character Rigging & Animation", "3D"),
+      shot("pecinta-alam-4.jpg", "Material & Texture Design", "3D"),
+      shot("pecinta-alam-5.jpg", "Environment & Scene Setup", "3D"),
     ],
   },
   {
-    title: "Late",
+    title: "Connection Lost",
+    cover: "/images/projects/late-11.png",
     tag: "3D",
+    drive:
+      "https://drive.google.com/file/d/1o0Hq_7dv8BM3lHjzxG9c4En9RIPYMYt0/view?usp=sharing",
     description:
       "A short 3D animation about a girl who arrives late to an event. I handled story, assets, character modeling, rigging, and animation.",
     tech: ["Blender", "3D Modeling", "Rigging", "Animation"],
     shots: [
-      shot("late-1.png", "Character", "3D"),
-      shot("late-2.png", "Scene", "3D"),
-      shot("late-3.png", "Rig", "3D"),
+      shot("late-1.png", "Character Modeling", "3D"),
+      shot("late-2.1.png", "UV Mapping & Texturing", "3D"),
+      shot("late-2.2.png", "Character Rigging", "3D"),
+      shot("late-3.png", "Procedural Material Design", "3D"),
+      shot("late-4.png", "Robot Modeling", "3D"),
+      shot("late-5.png", "Scene Composition & Animation", "3D"),
+      shot("late-6.png", "Scene Composition & Animation", "3D"),
+      shot("late-7.jpeg", "Scene Composition & Animation", "3D"),
     ],
   },
   {
     title: "Locked In",
+    cover: "/images/projects/locked-in-1.png",
     tag: "Game",
+    github: "https://github.com/adell10/LockedIn.git",
     description:
       "A first-person puzzle escape room with psychological horror, still in development. I work on gameplay mechanics, Blueprint interactions, and asset integration.",
     tech: ["Unreal Engine 5", "Blueprint", "3D Assets"],
@@ -148,6 +182,36 @@ const projects: {
       shot("locked-in-1.png", "Room", "3D"),
       shot("locked-in-2.png", "Puzzle", "3D"),
       shot("locked-in-blueprint.png", "Blueprint", "Code"),
+    ],
+  },
+  {
+    title: "Anti Pinjol",
+    cover: "/images/projects/anti-pinjol-1.png",
+    tag: "Web",
+    description:
+      "An informational website that presents educational content about the risks of illegal online lending and helps visitors understand the issue.",
+    tech: ["Website"],
+    shots: [
+      shot("anti-pinjol-1.png", "Landing Page", "UI"),
+      shot("anti-pinjol-2.png", "Illegal Loan Education", "UI"),
+      shot("anti-pinjol-3.png", "Loan Interest Calculator", "UI"),
+      shot("anti-pinjol-4.png", "Loan Legality Checker", "UI"),
+      shot("anti-pinjol-5.png", "Victim Stories", "UI"),
+      shot("anti-pinjol-6.png", "Illegal Loan Reporting", "UI"),
+    ],
+  },
+  {
+    title: "SiKontra",
+    cover: "/images/projects/manajemen-kontrakan-1.png",
+    tag: "Web",
+    description:
+      "An earlier website project for managing rental-property information. Included here as an archive of my previous work.",
+    tech: ["Website"],
+    shots: [
+      shot("manajemen-kontrakan-2.png", "User Management", "UI"),
+      shot("manajemen-kontrakan-3.png", "Unit Management Dashboard", "UI"),
+      shot("manajemen-kontrakan-4.png", "Tenant Management", "UI"),
+      shot("manajemen-kontrakan-5.png", "Transaction History", "UI"),
     ],
   },
 ];
@@ -241,7 +305,7 @@ const gallery = [
   },
 ];
 
-const navItems = ["about", "skills", "projects", "gallery"];
+const navItems = ["about", "journey", "skills", "projects", "gallery"];
 
 const tilts = [-4, 3, -2, 4, -3];
 
@@ -249,10 +313,12 @@ function TechTile({
   t,
   i,
   onMove,
+  onLeave,
 }: {
   t: Tech;
   i: number;
   onMove: (e: MouseEvent<HTMLElement>) => void;
+  onLeave: (e: MouseEvent<HTMLElement>) => void;
 }) {
   const [broken, setBroken] = useState(false);
   const Ico = t.icon;
@@ -261,6 +327,7 @@ function TechTile({
       className="tech"
       style={{ "--c": t.color, "--i": i } as CSSProperties}
       onMouseMove={onMove}
+      onMouseLeave={onLeave}
     >
       <div className="tech-icon">
         {t.img && !broken ? (
@@ -274,42 +341,50 @@ function TechTile({
   );
 }
 
-function Polaroid({
-  s,
-  i,
+function ProjectFolder({
+  title,
+  shots,
   onOpen,
 }: {
-  s: Shot;
-  i: number;
-  onOpen: () => void;
+  title: string;
+  shots: Shot[];
+  onOpen: (index: number) => void;
 }) {
-  const [broken, setBroken] = useState(false);
+  const [hovered, setHovered] = useState(false);
   return (
-    <button
-      className={`polaroid ${broken ? "empty" : ""}`}
-      style={{ "--r": `${tilts[i % tilts.length]}deg` } as CSSProperties}
-      onClick={onOpen}
-      disabled={broken}
-      aria-label={`Enlarge: ${s.caption}`}
+    <div
+      className={`project-folder ${hovered ? "is-hovered" : ""}`}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
     >
-      <span className="polaroid-img">
-        {broken ? (
-          <>
-            <ImageIcon size={24} />
-            <small>{s.src.split("/").pop()}</small>
-          </>
-        ) : (
-          <img
-            src={s.src}
-            alt={s.caption}
-            loading="lazy"
-            onError={() => setBroken(true)}
-          />
-        )}
-        <em className="kind">{s.kind}</em>
-      </span>
-      <span className="polaroid-cap">{s.caption}</span>
-    </button>
+      <button
+        type="button"
+        className="folder-trigger"
+        onClick={() => onOpen(0)}
+        aria-label={`Open ${title} project gallery`}
+      >
+        <span className="folder-preview-stack" aria-hidden="true">
+          {shots.slice(0, 3).map((item, index) => (
+            <span
+              className={`folder-preview preview-${index + 1}`}
+              key={item.src}
+            >
+              <img src={item.src} alt="" loading="lazy" />
+            </span>
+          ))}
+        </span>
+        <span className="folder-art">
+          <Folder size={76} strokeWidth={1.15} />
+          <span className="folder-tab" />
+        </span>
+        <span className="folder-label">
+          <FolderOpen size={15} />
+          <span>View project files</span>
+          <span className="folder-count">{shots.length}</span>
+        </span>
+      </button>
+      <span className="folder-hint">Hover to preview · Click to explore</span>
+    </div>
   );
 }
 
@@ -318,7 +393,7 @@ type LightboxItem = { src: string; title: string; alt: string };
 function App() {
   const [roleIndex, setRoleIndex] = useState(0);
   const [typed, setTyped] = useState("");
-    const mode = roles[roleIndex].mode;
+  const mode = roles[roleIndex].mode;
   const [filter, setFilter] = useState<Filter>("All");
   const [open, setOpen] = useState("SIMATKUL");
   const [skill, setSkill] = useState(0);
@@ -457,9 +532,12 @@ function App() {
     // Tombol mode juga mengarahkan video ke fase warna yang sesuai.
     if (videoRef.current) {
       const v = videoRef.current;
-      v.currentTime = m === "art" && Number.isFinite(v.duration) && v.duration > 0
-        ? v.duration / 2
-        : m === "art" ? 7.3 : 0;
+      v.currentTime =
+        m === "art" && Number.isFinite(v.duration) && v.duration > 0
+          ? v.duration / 2
+          : m === "art"
+            ? 7.3
+            : 0;
     }
     setTone(m === "art" ? "blue" : "purple");
   };
@@ -506,6 +584,14 @@ function App() {
     return () => window.removeEventListener("keydown", onKey);
   }, [lightboxOpen]);
 
+  // Highlight the card currently under the pointer, independently per column.
+  const onJourneyCardEnter = (e: MouseEvent<HTMLElement>) => {
+    const timeline = e.currentTarget.closest(".journey-timeline");
+    timeline?.querySelectorAll(".journey-card").forEach((card) => {
+      card.classList.toggle("is-active", card === e.currentTarget);
+    });
+  };
+
   const onHeroMove = (e: MouseEvent<HTMLElement>) => {
     const el = e.currentTarget;
     const r = el.getBoundingClientRect();
@@ -522,6 +608,13 @@ function App() {
     el.style.setProperty("--my", `${y}px`);
     el.style.setProperty("--rx", `${(y / r.height - 0.5) * -8}deg`);
     el.style.setProperty("--ry", `${(x / r.width - 0.5) * 10}deg`);
+  };
+
+  const onTechLeave = (e: MouseEvent<HTMLElement>) => {
+    e.currentTarget.style.setProperty("--rx", "0deg");
+    e.currentTarget.style.setProperty("--ry", "0deg");
+    e.currentTarget.style.setProperty("--mx", "50%");
+    e.currentTarget.style.setProperty("--my", "50%");
   };
 
   const copyEmail = async () => {
@@ -625,15 +718,37 @@ function App() {
               </a>
             </div>
             <div className="social-links">
-              <a href={GITHUB} target="_blank" rel="noreferrer">
-                GitHub
+              <a
+                href={GITHUB}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="GitHub"
+                title="GitHub"
+              >
+                <SiGithub size={20} />
               </a>
               {LINKEDIN && (
-                <a href={LINKEDIN} target="_blank" rel="noreferrer">
-                  LinkedIn
+                <a
+                  href={LINKEDIN}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="LinkedIn"
+                  title="LinkedIn"
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.35V9h3.414v1.561h.049c.476-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM3.555 9h3.564v11.452H3.555V9zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                  </svg>
                 </a>
               )}
-              <a href={`mailto:${EMAIL}`}>Email</a>
+              <a href={`mailto:${EMAIL}`} aria-label="Email" title="Email">
+                <SiGmail size={20} />
+              </a>
             </div>
           </div>
 
@@ -661,8 +776,35 @@ function App() {
         <ForestWelcome />
 
         <section className="section about" id="about">
-          <div className="about-photo">
-            <img src="/images/profile.png" alt="Devia Artika Maharani" />
+          <div
+            className="about-photo"
+            onMouseMove={(e) => {
+              const rect = e.currentTarget.getBoundingClientRect();
+              const x = e.clientX - rect.left;
+              const y = e.clientY - rect.top;
+              e.currentTarget.style.setProperty("--reveal-x", `${x}px`);
+              e.currentTarget.style.setProperty("--reveal-y", `${y}px`);
+              e.currentTarget.classList.add("is-revealing");
+            }}
+            onMouseLeave={(e) =>
+              e.currentTarget.classList.remove("is-revealing")
+            }
+          >
+            <img
+              className="profile-base"
+              src="/images/profile.png"
+              alt="Devia Artika Maharani"
+            />
+            <img
+              className="profile-reveal"
+              src="/images/profile2.png"
+              alt=""
+              aria-hidden="true"
+            />
+            <span className="profile-pixels" aria-hidden="true" />
+            <span className="profile-cursor" aria-hidden="true">
+              <i />
+            </span>
           </div>
           <div className="about-text">
             <h2>Hi, I'm Devia.</h2>
@@ -686,6 +828,191 @@ function App() {
               I'm looking for an internship in my sixth semester, where I can
               keep growing as a developer.
             </p>
+          </div>
+        </section>
+
+        <section className="section journey-section" id="journey">
+          <div className="journey-heading">
+            <span className="journey-kicker">THE PATH SO FAR</span>
+            <h2 className="section-title">
+              Education <span>&</span> Experience
+            </h2>
+            <p className="section-sub">
+              A little timeline of where I learned, worked, and found my place
+              to grow.
+            </p>
+          </div>
+
+          <div className="journey-columns">
+            <div className="journey-column">
+              <div className="journey-column-title">
+                <span className="journey-symbol">01</span>
+                <h3>Education</h3>
+              </div>
+              <div className="journey-timeline">
+                <article
+                  className="journey-card current is-active"
+                  onMouseEnter={onJourneyCardEnter}
+                >
+                  <span className="journey-marker">01</span>
+                  <div className="journey-card-top">
+                    <div className="journey-org">
+                      <span className="journey-org-icon">UGM</span>
+                      <div>
+                        <h4>Universitas Gadjah Mada</h4>
+                        <span>Yogyakarta, Indonesia</span>
+                      </div>
+                    </div>
+                    <span className="journey-date">PRESENT</span>
+                  </div>
+                  <h3>Software Engineering</h3>
+                  <p>Teknologi Rekayasa Perangkat Lunak · Sekolah Vokasi</p>
+                  <div className="journey-tags">
+                    <span>Semester 5</span>
+                    <span>Current GPA 3.64</span>
+                  </div>
+                </article>
+
+                <article
+                  className="journey-card"
+                  onMouseEnter={onJourneyCardEnter}
+                >
+                  <span className="journey-marker">02</span>
+                  <div className="journey-card-top">
+                    <div className="journey-org">
+                      <span className="journey-org-icon school">SMK</span>
+                      <div>
+                        <h4>SMK Negeri 1 Sedayu</h4>
+                        <span>Sedayu, Indonesia</span>
+                      </div>
+                    </div>
+                    <span className="journey-date">COMPLETED</span>
+                  </div>
+                  <h3>Teknik Komputer dan Jaringan</h3>
+                  <p>Computer and Network Engineering · TKJ</p>
+                  <div className="journey-tags">
+                    <span>Computer Networking</span>
+                    <span>IT Fundamentals</span>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <div className="journey-column">
+              <div className="journey-column-title">
+                <span className="journey-symbol">02</span>
+                <h3>Experience</h3>
+              </div>
+              <div className="journey-timeline experience-timeline">
+                <article
+                  className="journey-card current is-active"
+                  onMouseEnter={onJourneyCardEnter}
+                >
+                  <span className="journey-marker">01</span>
+                  <div className="journey-card-top">
+                    <div className="journey-org">
+                      <span className="journey-org-icon org">K</span>
+                      <div>
+                        <h4>KOMATIK</h4>
+                        <span>Student Organization · UGM</span>
+                      </div>
+                    </div>
+                    <span className="journey-date">2026 – PRESENT</span>
+                  </div>
+                  <h3>Vice Head · Animation Division</h3>
+                  <p>
+                    Serving as Vice Head of the Animation Division, supporting
+                    team coordination and the division's creative activities.
+                  </p>
+                  <div className="journey-tags">
+                    <span>Leadership</span>
+                    <span>Animation</span>
+                    <span>Team Coordination</span>
+                  </div>
+                </article>
+
+                <article
+                  className="journey-card"
+                  onMouseEnter={onJourneyCardEnter}
+                >
+                  <span className="journey-marker">02</span>
+                  <div className="journey-card-top">
+                    <div className="journey-org">
+                      <span className="journey-org-icon org">K</span>
+                      <div>
+                        <h4>KOMATIK</h4>
+                        <span>Student Organization · UGM</span>
+                      </div>
+                    </div>
+                    <span className="journey-date">EARLY 2025</span>
+                  </div>
+                  <h3>Member · Animation Division</h3>
+                  <p>
+                    Joined the Animation Division and participated in its
+                    creative and collaborative activities.
+                  </p>
+                  <div className="journey-tags">
+                    <span>Animation</span>
+                    <span>Teamwork</span>
+                  </div>
+                </article>
+
+                <article
+                  className="journey-card"
+                  onMouseEnter={onJourneyCardEnter}
+                >
+                  <span className="journey-marker">03</span>
+                  <div className="journey-card-top">
+                    <div className="journey-org">
+                      <span className="journey-org-icon org">A</span>
+                      <div>
+                        <h4>ASSETS</h4>
+                        <span>Student Organization · UGM</span>
+                      </div>
+                    </div>
+                    <span className="journey-date">EARLY 2025</span>
+                  </div>
+                  <h3>Member · KASTRAT</h3>
+                  <p>
+                    Kajian dan Aksi Strategis (KASTRAT) — contributed to
+                    strategic studies, discussions, and organizational
+                    initiatives within ASSETS.
+                  </p>
+                  <div className="journey-tags">
+                    <span>Organization</span>
+                    <span>Collaboration</span>
+                  </div>
+                </article>
+
+                <article
+                  className="journey-card"
+                  onMouseEnter={onJourneyCardEnter}
+                >
+                  <span className="journey-marker">04</span>
+                  <div className="journey-card-top">
+                    <div className="journey-org">
+                      <span className="journey-org-icon work">RL</span>
+                      <div>
+                        <h4>Royale Laptop</h4>
+                        <span>Paid Internship · E-commerce</span>
+                      </div>
+                    </div>
+                    <span className="journey-date">2023 · ~9 MONTHS</span>
+                  </div>
+                  <h3>E-commerce Administrator</h3>
+                  <p>
+                    Managed product uploads across Tokopedia, Shopee, Lazada,
+                    and other marketplaces; photographed products, recorded
+                    stock, and maintained online product listings.
+                  </p>
+                  <div className="journey-tags">
+                    <span>Product Listing</span>
+                    <span>Stock Management</span>
+                    <span>Product Photography</span>
+                  </div>
+                </article>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -714,7 +1041,13 @@ function App() {
               </div>
               <div className="tech-grid">
                 {group.skills.map((t, i) => (
-                  <TechTile key={t.name} t={t} i={i} onMove={onMove} />
+                  <TechTile
+                    key={t.name}
+                    t={t}
+                    i={i}
+                    onMove={onMove}
+                    onLeave={onTechLeave}
+                  />
                 ))}
               </div>
             </div>
@@ -741,6 +1074,9 @@ function App() {
           <div className="projects">
             {visible.map((p) => {
               const isOpen = open === p.title;
+              const projectLink = p.tag === "3D" ? p.drive : p.github;
+              const projectLinkType =
+                p.tag === "3D" ? "Google Drive" : "GitHub";
               return (
                 <article
                   key={p.title}
@@ -748,6 +1084,9 @@ function App() {
                 >
                   <button
                     className="project-head"
+                    style={{
+                      backgroundImage: `linear-gradient(90deg, rgba(5, 12, 20, .88), rgba(5, 12, 20, .62) 58%, rgba(5, 12, 20, .48)), url("${p.cover}")`,
+                    }}
                     aria-expanded={isOpen}
                     onClick={() => setOpen(isOpen ? "" : p.title)}
                   >
@@ -756,35 +1095,63 @@ function App() {
                     <ArrowUpRight size={22} className="arrow" />
                   </button>
                   <div className="project-body">
-                    <div>
-                      <p>{p.description}</p>
-                      <div className="chips">
-                        {p.tech.map((t) => (
-                          <span key={t}>{t}</span>
-                        ))}
-                      </div>
-                      <div
-                        className="album"
-                        aria-label={`${p.title} documentation`}
-                      >
-                        {p.shots.map((sh, i) => (
-                          <Polaroid
-                            key={sh.src}
-                            s={sh}
-                            i={i}
-                            onOpen={() =>
-                              setLightbox({
-                                items: p.shots.map((x) => ({
-                                  src: x.src,
-                                  title: `${p.title} · ${x.caption}`,
-                                  alt: x.caption,
-                                })),
-                                index: i,
-                              })
+                    <div className="project-detail-layout">
+                      <div className="project-copy">
+                        <p>{p.description}</p>
+                        <div className="project-actions">
+                          <a
+                            className={`project-github ${
+                              projectLink ? "available" : "placeholder"
+                            }`}
+                            href={projectLink || undefined}
+                            target={projectLink ? "_blank" : undefined}
+                            rel={projectLink ? "noreferrer" : undefined}
+                            aria-label={
+                              projectLink
+                                ? `Open ${p.title} ${projectLinkType}`
+                                : `${projectLinkType} link for ${p.title} — add link in App.tsx`
                             }
-                          />
-                        ))}
+                            title={
+                              projectLink
+                                ? `View ${projectLinkType}`
+                                : `Tambahkan link ${projectLinkType} di App.tsx`
+                            }
+                            aria-disabled={!projectLink}
+                            onClick={(event) => {
+                              if (!projectLink) event.preventDefault();
+                            }}
+                          >
+                            {p.tag === "3D" ? (
+                              <SiGoogledrive size={19} />
+                            ) : (
+                              <SiGithub size={19} />
+                            )}
+
+                            <span>
+                              {p.tag === "3D" ? "Google Drive" : "GitHub"}
+                            </span>
+                          </a>
+                        </div>
+                        <div className="chips">
+                          {p.tech.map((t) => (
+                            <span key={t}>{t}</span>
+                          ))}
+                        </div>
                       </div>
+                      <ProjectFolder
+                        title={p.title}
+                        shots={p.shots}
+                        onOpen={(index) =>
+                          setLightbox({
+                            items: p.shots.map((x) => ({
+                              src: x.src,
+                              title: `${p.title} · ${x.caption}`,
+                              alt: x.caption,
+                            })),
+                            index,
+                          })
+                        }
+                      />
                     </div>
                   </div>
                 </article>
