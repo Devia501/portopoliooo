@@ -10,6 +10,8 @@ import {
   Clapperboard,
   Code2,
   Copy,
+  Download,
+  ExternalLink,
   Gamepad2,
   FolderOpen,
   Folder,
@@ -41,19 +43,20 @@ import "./App.css";
 import ForestWelcome from "./components/ForestWelcome";
 
 // Isi dengan data kontakmu. LinkedIn kosong = tautannya disembunyikan.
-const EMAIL = "your-email@example.com";
+const EMAIL = "deviamaharani628@gmail.com";
 const GITHUB = "https://github.com/Devia501";
-const LINKEDIN = "";
+const LINKEDIN =
+  "https://www.linkedin.com/in/devia-maharani-a744b4326?utm_source=share_via&utm_content=profile&utm_medium=member_android";
 
 type Mode = "code" | "art";
 const modes: Record<Mode, { label: string; line: string }> = {
   code: {
     label: "Code",
-    line: "React, React Native, and TypeScript. I build responsive web and mobile interfaces and connect them to real APIs.",
+    line: "Building responsive web and mobile applications with React, React Native, and TypeScript, from intuitive interfaces to API integration.",
   },
   art: {
     label: "3D",
-    line: "Blender and Unreal Engine. I model, rig, and animate characters, and prototype small game worlds.",
+    line: "Creating 3D models, character animations, and immersive digital worlds with Blender and Unreal Engine.",
   },
 };
 
@@ -87,12 +90,18 @@ const projects: {
 }[] = [
   {
     title: "SIMATKUL",
-    cover: "/images/projects/simatkul-bg-v2.png",
+    cover: "/images/projects/simatkul-bg.png",
     github: "https://github.com/azizahhazii/FE-SIMATKUL.git", // Tempel link repository GitHub di sini.
     tag: "Web",
     description:
-      "A management system for academic practical courses. I worked on the frontend, interface development, and API integration.",
-    tech: ["React", "TypeScript", "Vite", "Tailwind CSS"],
+      "A course scheduling system for the Department of Electrical and Informatics Engineering at UGM's Vocational School, built to replace manual Excel scheduling across four study programs. It catches room, lecturer, and class conflicts while the schedule is being created, by disabling clashing options in the form instead of showing errors after saving. Built by a team of seven, where I was one of two frontend developers, turning the UI/UX design into working pages and integrating the backend API.",
+    highlights: [
+      "Master data management for curriculum, rooms, lecturers, classes, sessions, and academic periods",
+      "Real-time conflict prevention that disables lecturer, room, and class options already in use",
+      "Special rules for practical courses: lab rooms only, and paired sessions only",
+      "Weekly schedule views for lecturers, rooms, and classes, with Excel export",
+    ],
+    tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "Axios"],
     shots: [
       shot("simatkul-1.png", "Master Data"),
       shot("simatkul-2.png", "Practical Scheduling"),
@@ -103,12 +112,18 @@ const projects: {
   },
   {
     title: "SIA Akademik",
-    cover: "/images/projects/sia-11.png",
+    cover: "/images/projects/sia-akademik-bg.png",
     github: "https://github.com/Devia501/SIA_FE.git", // Tempel link repository GitHub di sini.
     tag: "Mobile",
     description:
-      "A mobile academic information system. I built interface screens and integrated the API.",
-    tech: ["React Native", "TypeScript", "REST API"],
+      "A mobile app for online new-student admissions at a university. Applicants register, fill in the application form, upload documents, pay, and track their status, while managers verify documents and payments and admins monitor reports and manage users. The project involved four teams on one shared database, and my team shared a single API with another team. In a team of three, I built the entire React Native frontend and its API integration, and extended the Laravel backend with additional tables and fields.",
+    highlights: [
+      "Applicant flow: registration, application form, document upload, payment confirmation, and status tracking",
+      "Manager flow: document verification and payment validation",
+      "Admin flow: registration and payment reports, plus user management",
+      "Three role-based experiences in one app, connected to a shared REST API",
+    ],
+    tech: ["React Native", "TypeScript", "Laravel", "MySQL", "REST API"],
     shots: [
       shot("sia-1.png", "Home Screen"),
       shot("sia-2.png", "Student Portal", "Dashboard & Registration"),
@@ -123,8 +138,21 @@ const projects: {
     github: "https://github.com/Devia501/dental_mobile.git", // Tempel link repository GitHub di sini.
     tag: "Mobile",
     description:
-      "A dental clinic app with an admin interface for managing clinic information, connected to the application API.",
-    tech: ["Expo", "React Native", "TypeScript"],
+      "A mobile app that digitizes dental X-ray documentation for Tentang Dental, a conservative dentistry clinic in Tangerang. Clinic admins pick patients who are present, capture or upload X-ray photos, add examination notes, and look up patient history and periodic reports, replacing manual records and physical archives. Built in a team of three in collaboration with another group, who set up the shared backend. I implemented the UI/UX design in React Native, integrated it with the REST API, and added the tables our feature set needed on the Laravel backend.",
+    highlights: [
+      "Daily list of present patients with search and filters",
+      "X-ray capture or upload from camera and gallery, with examination notes",
+      "Patient history showing past X-rays and examinations",
+      "Periodic reports for clinic management",
+    ],
+    tech: [
+      "Expo",
+      "React Native",
+      "TypeScript",
+      "Laravel",
+      "MySQL",
+      "REST API",
+    ],
     shots: [
       shot("dental-1.png", "App Overview"),
       shot("dental-2.png", "Platform Features"),
@@ -134,14 +162,20 @@ const projects: {
     ],
   },
   {
-    title: "Animasi Pecinta Alam",
-    cover: "/images/projects/pecinta-alam-1.png",
+    title: "Pecinta Alam",
+    cover: "/images/projects/pecinta-alam-bg.png",
     tag: "3D",
     drive:
       "https://drive.google.com/file/d/1UnczsPA5b6mkpLTtD-e0snTYN8NUaF5G/view?usp=sharing",
     description:
-      "A 3D animation about a hiker climbing a mountain. I handled story, assets, character creation, rigging, and animation.",
-    tech: ["Blender", "3D Modeling", "Rigging", "Animation"],
+      "A short 3D adventure film about an experienced hiker who climbs from base camp to the summit, made for an animation competition on the theme of nature conservation. In a team of three, I wrote the script with the team, built the assets, modeled and rigged the main character, and worked on the animation. The film uses a cartoon 3D style, with lighting that moves from morning sun to dusk at the summit.",
+    highlights: [
+      "Script and story development from storyboard to final scenes",
+      "Environment and prop modeling for the mountain trail",
+      "Character modeling and rigging for the hiker",
+      "Shared animation work, including the climb and summit scenes",
+    ],
+    tech: ["Blender", "3D Modeling", "Rigging", "Animation", "Scriptwriting"],
     shots: [
       shot("pecinta-alam-1.png", "3D Object Modeling", "3D"),
       shot("pecinta-alam-2.png", "Character Modeling", "3D"),
@@ -152,12 +186,18 @@ const projects: {
   },
   {
     title: "Connection Lost",
-    cover: "/images/projects/late-11.png",
+    cover: "/images/projects/late-bg.png",
     tag: "3D",
     drive:
       "https://drive.google.com/file/d/1o0Hq_7dv8BM3lHjzxG9c4En9RIPYMYt0/view?usp=sharing",
     description:
-      "A short 3D animation about a girl who arrives late to an event. I handled story, assets, character modeling, rigging, and animation.",
+      "A short 3D animated film about a teenager who hands almost every decision to AI, until a global outage forces them to think and act on their own. Made for an animation competition on the theme of technology. In a team of three, I modeled and rigged the human and robot characters, built the environment assets, and worked on the animation. The look shifts from bright, futuristic colors to a dim, cold palette during the outage, then to a calmer, warmer tone at the end.",
+    highlights: [
+      "Human and robot character modeling, each fully rigged",
+      "Environment assets for the film's scenes",
+      "UV mapping, texturing, and procedural materials",
+      "Shared animation work, with color and lighting that follow the story's mood",
+    ],
     tech: ["Blender", "3D Modeling", "Rigging", "Animation"],
     shots: [
       shot("late-1.png", "Character Modeling", "3D"),
@@ -172,21 +212,22 @@ const projects: {
   },
   {
     title: "Locked In",
-    cover: "/images/projects/locked-in-1.png",
+    cover: "/images/projects/lockin-bg.png",
     tag: "Game",
     github: "https://github.com/adell10/LockedIn.git",
     description:
       "A first-person puzzle escape room with psychological horror, still in development. I work on gameplay mechanics, Blueprint interactions, and asset integration.",
     tech: ["Unreal Engine 5", "Blueprint", "3D Assets"],
     shots: [
-      shot("locked-in-1.png", "Room", "3D"),
-      shot("locked-in-2.png", "Puzzle", "3D"),
-      shot("locked-in-blueprint.png", "Blueprint", "Code"),
+      shot("locked-in-1.png", "3D Environment Modeling", "3D"),
+      shot("locked-in-2.png", "UV Mapping & Texturing", "3D"),
+      shot("locked-in-3.png", "Blueprint Implementation", "3D"),
+      shot("locked-in-4.jpeg", "Final Environment Showcase", "3D"),
     ],
   },
   {
-    title: "Anti Pinjol",
-    cover: "/images/projects/anti-pinjol-1.png",
+    title: "Pinjol Watch",
+    cover: "/images/projects/anti-pinjol-bg.png",
     tag: "Web",
     description:
       "An informational website that presents educational content about the risks of illegal online lending and helps visitors understand the issue.",
@@ -202,7 +243,7 @@ const projects: {
   },
   {
     title: "SiKontra",
-    cover: "/images/projects/manajemen-kontrakan-1.png",
+    cover: "/images/projects/sikontra-bg.png",
     tag: "Web",
     description:
       "An earlier website project for managing rental-property information. Included here as an archive of my previous work.",
@@ -289,18 +330,18 @@ const skillGroups: {
 
 const gallery = [
   {
-    src: "/images/gallery-1.png",
-    title: "Character and environment",
+    src: "/images/gallery-3.png",
+    title: "Workspace Visualization",
     alt: "3D character in an environment, made in Blender",
   },
   {
     src: "/images/gallery-2.png",
-    title: "Character creation",
+    title: "Bedroom Interior Design",
     alt: "A modeled and rigged 3D character",
   },
   {
-    src: "/images/gallery-3.png",
-    title: "Visual experiments",
+    src: "/images/gallery-1.png",
+    title: "Automotive 3D Modeling",
     alt: "3D animation experiment",
   },
 ];
@@ -379,11 +420,13 @@ function ProjectFolder({
         </span>
         <span className="folder-label">
           <FolderOpen size={15} />
-          <span>View project files</span>
+          <span>Explore the gallery</span>
           <span className="folder-count">{shots.length}</span>
         </span>
       </button>
-      <span className="folder-hint">Hover to preview · Click to explore</span>
+      <span className="folder-hint">
+        A closer look at the process & results
+      </span>
     </div>
   );
 }
@@ -595,8 +638,12 @@ function App() {
   const onHeroMove = (e: MouseEvent<HTMLElement>) => {
     const el = e.currentTarget;
     const r = el.getBoundingClientRect();
-    el.style.setProperty("--pointer-x", `${e.clientX - r.left}px`);
-    el.style.setProperty("--pointer-y", `${e.clientY - r.top}px`);
+    const x = e.clientX - r.left;
+    const y = e.clientY - r.top;
+    el.style.setProperty("--pointer-x", `${x}px`);
+    el.style.setProperty("--pointer-y", `${y}px`);
+    el.style.setProperty("--mx", `${x}px`);
+    el.style.setProperty("--my", `${y}px`);
   };
 
   const onMove = (e: MouseEvent<HTMLElement>) => {
@@ -664,6 +711,7 @@ function App() {
           data-tone={tone}
           onMouseMove={onHeroMove}
         >
+          <div className="cursor-field" aria-hidden="true" />
           <div className="robot-atmosphere" aria-hidden="true">
             <span className="robot-orbit robot-orbit-one" />
             <span className="robot-orbit robot-orbit-two" />
@@ -810,14 +858,18 @@ function App() {
             <h2>Hi, I'm Devia.</h2>
             <p className="lead">
               I'm a Software Engineering student at Universitas Gadjah Mada, now
-              in my fifth semester.
+              in my fifth semester. I build web and mobile apps, mostly on the
+              frontend.
             </p>
             <p>
-              I like turning UI/UX designs into working products: interfaces
-              that are responsive, clear, and pleasant to use.
+              I like turning UI/UX designs into interfaces that are responsive,
+              clear, and nice to use. I'm also comfortable working on the
+              backend when a project needs it.
             </p>
             <p>
               Outside of code, I model, rig, and animate characters in Blender.
+              It's where I learned to care about details and how things move,
+              and I bring that into the UI work I do.
             </p>
             <p>
               Through coursework and team projects I've built web and mobile
@@ -825,9 +877,28 @@ function App() {
               Unreal Engine.
             </p>
             <p>
-              I'm looking for an internship in my sixth semester, where I can
-              keep growing as a developer.
+              I'm looking for a frontend or fullstack internship in my sixth
+              semester.
             </p>
+            <div className="about-cv-actions">
+              <a
+                className="btn primary"
+                href="/files/CV-Devia-Artika-Maharani.pdf"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <ExternalLink size={16} />
+                View CV
+              </a>
+              <a
+                className="btn ghost"
+                href="/files/CV-Devia-Artika-Maharani.pdf"
+                download="CV-Devia-Artika-Maharani.pdf"
+              >
+                <Download size={16} />
+                Download CV
+              </a>
+            </div>
           </div>
         </section>
 
@@ -838,8 +909,7 @@ function App() {
               Education <span>&</span> Experience
             </h2>
             <p className="section-sub">
-              A little timeline of where I learned, worked, and found my place
-              to grow.
+              A short timeline of where I studied, worked, and kept growing.
             </p>
           </div>
 
@@ -865,11 +935,13 @@ function App() {
                     </div>
                     <span className="journey-date">PRESENT</span>
                   </div>
-                  <h3>Software Engineering</h3>
-                  <p>Teknologi Rekayasa Perangkat Lunak · Sekolah Vokasi</p>
+                  <h3>Software Engineering Technology</h3>
+                  <p>
+                    Applied Bachelor's Program · School of Vocational Studies
+                  </p>
                   <div className="journey-tags">
                     <span>Semester 5</span>
-                    <span>Current GPA 3.64</span>
+                    <span>GPA 3.64</span>
                   </div>
                 </article>
 
@@ -888,8 +960,10 @@ function App() {
                     </div>
                     <span className="journey-date">COMPLETED</span>
                   </div>
-                  <h3>Teknik Komputer dan Jaringan</h3>
-                  <p>Computer and Network Engineering · TKJ</p>
+                  <h3>Computer and Network Engineering</h3>
+                  <p>
+                    Vocational High School · Teknik Komputer dan Jaringan (TKJ)
+                  </p>
                   <div className="journey-tags">
                     <span>Computer Networking</span>
                     <span>IT Fundamentals</span>
@@ -921,8 +995,8 @@ function App() {
                   </div>
                   <h3>Vice Head · Animation Division</h3>
                   <p>
-                    Serving as Vice Head of the Animation Division, supporting
-                    team coordination and the division's creative activities.
+                    Support team coordination and organize the division's
+                    creative activities.
                   </p>
                   <div className="journey-tags">
                     <span>Leadership</span>
@@ -944,12 +1018,12 @@ function App() {
                         <span>Student Organization · UGM</span>
                       </div>
                     </div>
-                    <span className="journey-date">EARLY 2025</span>
+                    <span className="journey-date">2025</span>
                   </div>
                   <h3>Member · Animation Division</h3>
                   <p>
-                    Joined the Animation Division and participated in its
-                    creative and collaborative activities.
+                    Joined the division and took part in its creative and
+                    collaborative projects.
                   </p>
                   <div className="journey-tags">
                     <span>Animation</span>
@@ -970,16 +1044,15 @@ function App() {
                         <span>Student Organization · UGM</span>
                       </div>
                     </div>
-                    <span className="journey-date">EARLY 2025</span>
+                    <span className="journey-date">2025</span>
                   </div>
                   <h3>Member · KASTRAT</h3>
                   <p>
-                    Kajian dan Aksi Strategis (KASTRAT) — contributed to
-                    strategic studies, discussions, and organizational
-                    initiatives within ASSETS.
+                    Took part in strategic studies, discussions, and initiatives
+                    in the Strategic Studies and Actions division (KASTRAT).
                   </p>
                   <div className="journey-tags">
-                    <span>Organization</span>
+                    <span>Strategic Studies</span>
                     <span>Collaboration</span>
                   </div>
                 </article>
@@ -997,13 +1070,13 @@ function App() {
                         <span>Paid Internship · E-commerce</span>
                       </div>
                     </div>
-                    <span className="journey-date">2023 · ~9 MONTHS</span>
+                    <span className="journey-date">2023 · 9 MONTHS</span>
                   </div>
                   <h3>E-commerce Administrator</h3>
                   <p>
-                    Managed product uploads across Tokopedia, Shopee, Lazada,
-                    and other marketplaces; photographed products, recorded
-                    stock, and maintained online product listings.
+                    Uploaded and maintained product listings on Tokopedia,
+                    Shopee, Lazada, and other marketplaces, and handled product
+                    photography and stock records.
                   </p>
                   <div className="journey-tags">
                     <span>Product Listing</span>
@@ -1072,7 +1145,7 @@ function App() {
             ))}
           </div>
           <div className="projects">
-            {visible.map((p) => {
+            {visible.map((p, projectIndex) => {
               const isOpen = open === p.title;
               const projectLink = p.tag === "3D" ? p.drive : p.github;
               const projectLinkType =
@@ -1097,7 +1170,13 @@ function App() {
                   <div className="project-body">
                     <div className="project-detail-layout">
                       <div className="project-copy">
-                        <p>{p.description}</p>
+                        <div className="project-detail-kicker">
+                          <span>PROJECT OVERVIEW</span>
+                          <span>
+                            /{String(projectIndex + 1).padStart(2, "0")}
+                          </span>
+                        </div>
+                        <p className="project-description">{p.description}</p>
                         <div className="project-actions">
                           <a
                             className={`project-github ${
